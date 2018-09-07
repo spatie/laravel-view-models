@@ -1,4 +1,4 @@
-# Very short description of the package
+# View models in Laravel
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/laravel-viewmodel.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-viewmodel)
 [![Build Status](https://img.shields.io/travis/spatie/laravel-viewmodel/master.svg?style=flat-square)](https://travis-ci.org/spatie/laravel-viewmodel)
