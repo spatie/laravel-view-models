@@ -18,7 +18,7 @@ composer require spatie/laravel-viewmodel
 View models are classes used to encapsulate view logic. 
 They help scale large applications with lots of views and view data.
 
-View models are constructed like so:
+A basic view model is made like this:
 
 ```php
 class PostViewModel extends ViewModel
