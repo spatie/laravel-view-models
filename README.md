@@ -69,7 +69,7 @@ class PostsController
 
 It allows a view to do this:
 
-```html
+```blade
 <input type="text" value="$post->title" />
 <input type="text" value="$post->body" />
 
