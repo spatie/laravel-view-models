@@ -92,7 +92,7 @@ class ViewModelTest extends TestCase
     /** @test */
     public function to_response_returns_a_view_response_by_default()
     {
-        $response = $this->viewModel->withView('test')->toResponse($this->createRequest([
+        $response = $this->viewModel->view('test')->toResponse($this->createRequest([
             'Content-Type' => 'application/json',
         ]));
 

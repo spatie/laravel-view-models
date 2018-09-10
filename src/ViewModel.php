@@ -40,7 +40,7 @@ class ViewModel implements Arrayable, Responsable
         return new JsonResponse($this->items()->toJson());
     }
 
-    public function withView(string $view): ViewModel
+    public function view(string $view): ViewModel
     {
         $this->view = $view;
 
@@ -73,7 +73,7 @@ class ViewModel implements Arrayable, Responsable
         return array_merge([
             'toArray',
             'toResponse',
-            'withView',
+            'view',
         ], $this->ignore);
     }
 

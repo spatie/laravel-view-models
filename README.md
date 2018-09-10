@@ -124,7 +124,7 @@ class PostsController
     {
         // …
         
-        return (new PostViewModel($post))->withView('post.form');
+        return (new PostViewModel($post))->view('post.form');
     }
 }
 ```
