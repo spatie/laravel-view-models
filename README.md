@@ -41,7 +41,7 @@ class PostViewModel extends ViewModel
 }
 ```
 
-They are used in controllers like so:
+And used in controllers like so:
 
 ```php
 class PostsController
@@ -67,7 +67,7 @@ class PostsController
 }
 ```
 
-And allow the views to do this:
+It allows a view to do this:
 
 ```html
 <input type="text" value="$post->title" />
