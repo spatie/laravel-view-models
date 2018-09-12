@@ -6,11 +6,9 @@
 [![Quality Score](https://img.shields.io/scrutinizer/g/spatie/laravel-view-models.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie/laravel-view-models)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-view-models.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-view-models)
 
-View models provide an abstraction for passing data to views. They allow a better separation of concerns, and provide more flexibility for the developer.
+Have you ever made a controller where you had to do a lot of work to prepare variables to be passed to a view? You can move that kind of work to a so called view model.  In essence, view models are simple classes that take some data, and transform it into something usable for the view.
 
-View models are classes used to encapsulate view logic. They help scale large applications with lots of views and view data.
-
-You can read more about the pattern itself [here](https://stitcher.io/blog/laravel-view-models).
+You'll find a more detailed explanation and some good examples in [this blogpost on Stitcher.io](https://stitcher.io/blog/laravel-view-models).
 
 ## Installation
 
