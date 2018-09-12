@@ -5,12 +5,12 @@ namespace Spatie\ViewModels;
 use Closure;
 use ReflectionClass;
 use ReflectionMethod;
+use ReflectionProperty;
 use Illuminate\Support\Str;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Collection;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Contracts\Support\Responsable;
-use ReflectionProperty;
 use Symfony\Component\HttpFoundation\Response;
 
 abstract class ViewModel implements Arrayable, Responsable
