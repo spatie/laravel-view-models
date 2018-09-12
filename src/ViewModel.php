@@ -63,7 +63,7 @@ class ViewModel implements Arrayable, Responsable
                 return $this->shouldIgnore($method->getName());
             })
             ->mapWithKeys(function (ReflectionMethod $method) {
-                return [$method->getName() => $this->createVariable($method)];
+                return [$method->getName() => $this->createVariableFromMethod($method)];
             });
 
         return $publicProperties->merge($publicMethods);
@@ -87,7 +87,7 @@ class ViewModel implements Arrayable, Responsable
         ], $this->ignore);
     }
 
-    protected function createVariable(ReflectionMethod $method)
+    protected function createVariableFromMethod(ReflectionMethod $method)
     {
         if ($method->getNumberOfParameters() === 0) {
             return $this->{$method->getName()}();
