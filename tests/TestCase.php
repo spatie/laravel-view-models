@@ -4,8 +4,8 @@ namespace Spatie\ViewModels\Tests;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
-use Orchestra\Testbench\TestCase as OrchestraTestCase;
 use Symfony\Component\HttpFoundation\Response;
+use Orchestra\Testbench\TestCase as OrchestraTestCase;
 
 class TestCase extends OrchestraTestCase
 {
