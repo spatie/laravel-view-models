@@ -54,7 +54,7 @@ class PostsController
 {
     public function create()
     {
-        $viewModel = new PostFormViewModel(
+        $viewModel = new PostViewModel(
             current_user()
         );
         
@@ -63,7 +63,7 @@ class PostsController
     
     public function edit(Post $post)
     {
-        $viewModel = new PostFormViewModel(
+        $viewModel = new PostViewModel(
             current_user(), 
             $post
         );
