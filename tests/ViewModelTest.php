@@ -47,7 +47,7 @@ class ViewModelTest extends TestCase
     {
         $array = $this->viewModel->toArray();
 
-        $this->assertArrayNotHasKey('ignored', $array);
+        $this->assertArrayNotHasKey('ignoredMethod', $array);
     }
 
     /** @test */

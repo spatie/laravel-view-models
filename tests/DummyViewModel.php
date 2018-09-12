@@ -7,7 +7,7 @@ use stdClass;
 
 class DummyViewModel extends ViewModel
 {
-    protected $ignore = ['ignored'];
+    protected $ignore = ['ignoredMethod'];
 
     public function post(): stdClass
     {
@@ -29,7 +29,7 @@ class DummyViewModel extends ViewModel
         ];
     }
 
-    public function ignored(): bool
+    public function ignoredMethod(): bool
     {
         return true;
     }

@@ -91,11 +91,11 @@ However: methods can also be marked as ignored.
 ```php
 class PostViewModel extends ViewModel
 {
-    protected $ignored = ['ignored'];
+    protected $ignored = ['ignoredMethod'];
 
     // …
     
-    public function ignored() { /* … */ }
+    public function ignoredMethod() { /* … */ }
 }
 ```
 
