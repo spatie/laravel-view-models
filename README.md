@@ -75,8 +75,8 @@ class PostsController
 It allows a view to do this:
 
 ```blade
-<input type="text" value="$post->title" />
-<input type="text" value="$post->body" />
+<input type="text" value="{{ $post->title }}" />
+<input type="text" value="{{ $post->body }}" />
 
 <select>
     @foreach ($categories as $category)
