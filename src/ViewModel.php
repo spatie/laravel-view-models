@@ -3,13 +3,13 @@
 namespace Spatie\ViewModels;
 
 use Closure;
-use Illuminate\Contracts\Support\Arrayable;
-use Illuminate\Contracts\Support\Responsable;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Support\Collection;
-use Illuminate\Support\Str;
 use ReflectionClass;
 use ReflectionMethod;
+use Illuminate\Support\Str;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Collection;
+use Illuminate\Contracts\Support\Arrayable;
+use Illuminate\Contracts\Support\Responsable;
 use Symfony\Component\HttpFoundation\Response;
 
 class ViewModel implements Arrayable, Responsable
