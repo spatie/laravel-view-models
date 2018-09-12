@@ -49,24 +49,27 @@ class ViewModel implements Arrayable, Responsable
     {
         $class = new ReflectionClass($this);
 
-        $methods = collect($class->getMethods(ReflectionMethod::IS_PUBLIC));
+        $publicMethods = collect($class->getMethods(ReflectionMethod::IS_PUBLIC));
 
-        $ignore = $this->ignore();
-
-        return $methods
-            ->reject(function (ReflectionMethod $method) use ($ignore) {
-                return
-                    Str::startsWith($method->getName(), '__')
-                    || in_array($method->getName(), $ignore);
+        return $publicMethods
+            ->reject(function (ReflectionMethod $method) {
+                return $this->shouldIgnore($method->getName());
             })
             ->mapWithKeys(function (ReflectionMethod $method) {
-
-
                 return [$method->getName() => $this->createVariable($method)];
             });
     }
 
-    protected function ignore(): array
+    protected function shouldIgnore(string $methodName): bool
+    {
+        if (Str::startsWith($methodName, '__')) {
+            return false;
+        }
+
+        return in_array($methodName, $this->ignoredMethods());
+    }
+
+    protected function ignoredMethods(): array
     {
         return array_merge([
             'toArray',
