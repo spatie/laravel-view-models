@@ -5,6 +5,11 @@
 [![Quality Score](https://img.shields.io/scrutinizer/g/spatie/laravel-viewmodel.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie/laravel-viewmodel)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-viewmodel.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-viewmodel)
 
+View models provide an abstraction for passing data to views.
+They allow a better separation of concerns, and provide more flexibility for the developer.
+
+You can read more about the pattern itself [here](https://stitcher.io/blog/laravel-view-models)
+
 ## Installation
 
 You can install the package via composer:
@@ -134,7 +139,7 @@ this approach will also return JSON data instead of a rendered view.
 
 #### Exposing view functions
 
-View models can expose functions which require extra methods.
+View models can expose functions which require extra parameters.
 
 ```php
 class PostViewModel extends ViewModel
