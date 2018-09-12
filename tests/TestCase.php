@@ -29,6 +29,6 @@ class TestCase extends OrchestraTestCase
 
     protected function getResponseBody(Response $response): array
     {
-        return json_decode(json_decode($response->getContent(), true), true);
+        return json_decode($response->getContent(), true);
     }
 }
