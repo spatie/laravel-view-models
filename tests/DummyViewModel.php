@@ -7,6 +7,8 @@ use Spatie\ViewModels\ViewModel;
 
 class DummyViewModel extends ViewModel
 {
+    public $property = 'abc';
+
     protected $ignore = ['ignoredMethod'];
 
     public function post(): stdClass

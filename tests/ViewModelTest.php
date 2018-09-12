@@ -27,6 +27,14 @@ class ViewModelTest extends TestCase
     }
 
     /** @test */
+    public function public_properties_are_listed()
+    {
+        $array = $this->viewModel->toArray();
+
+        $this->assertArrayHasKey('property', $array);
+    }
+
+    /** @test */
     public function values_are_kept_as_they_are()
     {
         $array = $this->viewModel->toArray();

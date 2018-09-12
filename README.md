@@ -29,10 +29,14 @@ A basic view model is made like this:
 ```php
 class PostViewModel extends ViewModel
 {
+    public $indexUrl = null;
+
     public function __construct(User $user, Post $post = null)
     {
         $this->user = $user;
         $this->post = $post;
+        
+        $this->indexUrl = action([PostsController::class, 'index']); 
     }
     
     public function post(): Post
@@ -84,10 +88,12 @@ In a view you can do this:
         <option value="{{ $category->id }}">{{ $category->name }}</option>
     @endforeach
 </select>
+
+<a href="{{ $indexUrl }}">Back</a>
 ```
 
-All public methods in a view model are automatically exposed to the view. 
-However: methods can also be marked as ignored.
+All public methods and properties in a view model are automatically exposed to the view. 
+However: they can also be marked as ignored.
 
 ```php
 class PostViewModel extends ViewModel
