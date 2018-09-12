@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-view-models` will be documented in this file
 
+## 1.0.2 - 2018-09-12
+
+- Properly ignore magic methods
+
 ## 1.0.1 - 2018-09-12
 
 - Fix JSON response being wrongly encoded

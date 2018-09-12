@@ -72,7 +72,7 @@ abstract class ViewModel implements Arrayable, Responsable
     protected function shouldIgnore(string $methodName): bool
     {
         if (Str::startsWith($methodName, '__')) {
-            return false;
+            return true;
         }
 
         return in_array($methodName, $this->ignoredMethods());
