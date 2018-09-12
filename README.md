@@ -42,7 +42,7 @@ class PostViewModel extends ViewModel
     
     public function categories(): Collection
     {
-        return Category::whereUserAllowed($this->user)->get();
+        return Category::canBeUsedBy($this->user)->get();
     }
 }
 ```
