@@ -8,7 +8,7 @@ use Illuminate\Http\Response;
 class ViewModelTest extends TestCase
 {
     /** @var \Spatie\ViewModels\ViewModel */
-    private $viewModel;
+    protected $viewModel;
 
     protected function setUp()
     {
