@@ -13,7 +13,7 @@ use Illuminate\Contracts\Support\Responsable;
 use ReflectionProperty;
 use Symfony\Component\HttpFoundation\Response;
 
-class ViewModel implements Arrayable, Responsable
+abstract class ViewModel implements Arrayable, Responsable
 {
     protected $ignore = [];
 
