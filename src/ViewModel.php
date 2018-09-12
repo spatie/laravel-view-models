@@ -20,8 +20,6 @@ class ViewModel implements Arrayable, Responsable
 
     public function toArray(): array
     {
-        // Add viewmodel?
-
         return $this
             ->items()
             ->all();
