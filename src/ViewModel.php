@@ -50,7 +50,7 @@ class ViewModel implements Arrayable, Responsable
     {
         $class = new ReflectionClass($this);
 
-        $properties = collect($class->getProperties(ReflectionProperty::IS_PUBLIC))
+        $publicProperties = collect($class->getProperties(ReflectionProperty::IS_PUBLIC))
             ->reject(function (ReflectionProperty $property) {
                 return $this->shouldIgnore($property->getName());
             })
@@ -58,7 +58,7 @@ class ViewModel implements Arrayable, Responsable
                 return [$property->getName() => $this->{$property->getName()}];
             });
 
-        $methods = collect($class->getMethods(ReflectionMethod::IS_PUBLIC))
+        $publicMethods = collect($class->getMethods(ReflectionMethod::IS_PUBLIC))
             ->reject(function (ReflectionMethod $method) {
                 return $this->shouldIgnore($method->getName());
             })
@@ -66,7 +66,7 @@ class ViewModel implements Arrayable, Responsable
                 return [$method->getName() => $this->createVariable($method)];
             });
 
-        return $properties->merge($methods);
+        return $publicProperties->merge($publicMethods);
     }
 
     protected function shouldIgnore(string $methodName): bool
