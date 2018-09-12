@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\ViewModel;
+namespace Spatie\ViewModels;
 
 use Closure;
 use Illuminate\Contracts\Support\Arrayable;

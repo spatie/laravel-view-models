@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\ViewModel\Tests;
+namespace Spatie\ViewModels\Tests;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;

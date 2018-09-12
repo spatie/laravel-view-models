@@ -24,12 +24,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Spatie\\ViewModel\\": "src"
+            "Spatie\\ViewModels\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Spatie\\ViewModel\\Tests\\": "tests"
+            "Spatie\\ViewModels\\Tests\\": "tests"
         }
     },
     "scripts": {

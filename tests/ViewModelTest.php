@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\ViewModel\Tests;
+namespace Spatie\ViewModels\Tests;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
 
 class ViewModelTest extends TestCase
 {
-    /** @var \Spatie\ViewModel\ViewModel */
+    /** @var \Spatie\ViewModels\ViewModel */
     private $viewModel;
 
     protected function setUp()

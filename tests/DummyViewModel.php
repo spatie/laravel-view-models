@@ -1,8 +1,8 @@
 <?php
 
-namespace Spatie\ViewModel\Tests;
+namespace Spatie\ViewModels\Tests;
 
-use Spatie\ViewModel\ViewModel;
+use Spatie\ViewModels\ViewModel;
 use stdClass;
 
 class DummyViewModel extends ViewModel
