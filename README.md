@@ -27,10 +27,14 @@ A view model is a class where you can put some complex logic for your views. Thi
 ```php
 class PostViewModel extends ViewModel
 {
+    public $indexUrl = null;
+
     public function __construct(User $user, Post $post = null)
     {
         $this->user = $user;
         $this->post = $post;
+        
+        $this->indexUrl = action([PostsController::class, 'index']); 
     }
     
     public function post(): Post
@@ -82,9 +86,11 @@ In a view you can do this:
         <option value="{{ $category->id }}">{{ $category->name }}</option>
     @endforeach
 </select>
+
+<a href="{{ $indexUrl }}">Back</a>
 ```
 
-All public methods in a view model are automatically exposed to the view. If you don't want a specific method to be available in your view, you can ignore it.
+All public methods and properties in a view model are automatically exposed to the view. If you don't want a specific method to be available in your view, you can ignore it.
 
 ```php
 class PostViewModel extends ViewModel

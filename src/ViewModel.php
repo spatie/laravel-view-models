@@ -10,6 +10,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Collection;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Contracts\Support\Responsable;
+use ReflectionProperty;
 use Symfony\Component\HttpFoundation\Response;
 
 class ViewModel implements Arrayable, Responsable
@@ -49,15 +50,23 @@ class ViewModel implements Arrayable, Responsable
     {
         $class = new ReflectionClass($this);
 
-        $publicMethods = collect($class->getMethods(ReflectionMethod::IS_PUBLIC));
+        $publicProperties = collect($class->getProperties(ReflectionProperty::IS_PUBLIC))
+            ->reject(function (ReflectionProperty $property) {
+                return $this->shouldIgnore($property->getName());
+            })
+            ->mapWithKeys(function (ReflectionProperty $property) {
+                return [$property->getName() => $this->{$property->getName()}];
+            });
 
-        return $publicMethods
+        $publicMethods = collect($class->getMethods(ReflectionMethod::IS_PUBLIC))
             ->reject(function (ReflectionMethod $method) {
                 return $this->shouldIgnore($method->getName());
             })
             ->mapWithKeys(function (ReflectionMethod $method) {
-                return [$method->getName() => $this->createVariable($method)];
+                return [$method->getName() => $this->createVariableFromMethod($method)];
             });
+
+        return $publicProperties->merge($publicMethods);
     }
 
     protected function shouldIgnore(string $methodName): bool
@@ -78,7 +87,7 @@ class ViewModel implements Arrayable, Responsable
         ], $this->ignore);
     }
 
-    protected function createVariable(ReflectionMethod $method)
+    protected function createVariableFromMethod(ReflectionMethod $method)
     {
         if ($method->getNumberOfParameters() === 0) {
             return $this->{$method->getName()}();
