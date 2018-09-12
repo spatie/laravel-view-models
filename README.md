@@ -8,7 +8,7 @@
 View models provide an abstraction for passing data to views.
 They allow a better separation of concerns, and provide more flexibility for the developer.
 
-You can read more about the pattern itself [here](https://stitcher.io/blog/laravel-view-models)
+You can read more about the pattern itself [here](https://stitcher.io/blog/laravel-view-models).
 
 ## Installation
 
