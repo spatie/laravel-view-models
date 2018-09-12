@@ -29,14 +29,14 @@ abstract class ViewModel implements Arrayable, Responsable
     public function toResponse($request): Response
     {
         if ($request->wantsJson()) {
-            return new JsonResponse($this->items()->toJson());
+            return new JsonResponse($this->items());
         }
 
         if ($this->view) {
             return response()->view($this->view, $this);
         }
 
-        return new JsonResponse($this->items()->toJson());
+        return new JsonResponse($this->items());
     }
 
     public function view(string $view): ViewModel
