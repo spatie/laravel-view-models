@@ -73,7 +73,7 @@ class PostsController
 }
 ```
 
-It allows a view to do this:
+In a view you can do this:
 
 ```blade
 <input type="text" value="{{ $post->title }}" />
