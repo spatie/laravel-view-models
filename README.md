@@ -8,7 +8,7 @@
 
 View models provide an abstraction for passing data to views. They allow a better separation of concerns, and provide more flexibility for the developer.
 
-View models are classes used to encapsulate view logic. hey help scale large applications with lots of views and view data.
+View models are classes used to encapsulate view logic. They help scale large applications with lots of views and view data.
 
 You can read more about the pattern itself [here](https://stitcher.io/blog/laravel-view-models).
 
@@ -22,7 +22,7 @@ composer require spatie/laravel-view-models
 
 ## Usage
 
-A view model is a class where you can put some complex logic for your views. This will make your controller a bit lighter.  You can create a view model by extending the provided `Spatie\ViewModels\ViewModel`.
+A view model is a class where you can put some complex logic for your views. This will make your controllers a bit lighter.  You can create a view model by extending the provided `Spatie\ViewModels\ViewModel`.
 
 ```php
 class PostViewModel extends ViewModel
