@@ -6,8 +6,9 @@
 [![Quality Score](https://img.shields.io/scrutinizer/g/spatie/laravel-view-models.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie/laravel-view-models)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-view-models.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-view-models)
 
-View models provide an abstraction for passing data to views.
-They allow a better separation of concerns, and provide more flexibility for the developer.
+View models provide an abstraction for passing data to views. They allow a better separation of concerns, and provide more flexibility for the developer.
+
+View models are classes used to encapsulate view logic. hey help scale large applications with lots of views and view data.
 
 You can read more about the pattern itself [here](https://stitcher.io/blog/laravel-view-models).
 
@@ -21,10 +22,7 @@ composer require spatie/laravel-view-models
 
 ## Usage
 
-View models are classes used to encapsulate view logic. 
-They help scale large applications with lots of views and view data.
-
-A basic view model is made like this:
+A view model is a class where you can put some complex logic for your views. This will make your controller a bit lighter.  You can create a view model by extending the provided `Spatie\ViewModels\ViewModel`.
 
 ```php
 class PostViewModel extends ViewModel
@@ -86,8 +84,7 @@ In a view you can do this:
 </select>
 ```
 
-All public methods in a view model are automatically exposed to the view. 
-However: methods can also be marked as ignored.
+All public methods in a view model are automatically exposed to the view. If you don't want a specific method to be available in your view, you can ignore it.
 
 ```php
 class PostViewModel extends ViewModel
@@ -100,7 +97,7 @@ class PostViewModel extends ViewModel
 }
 ```
 
-All PHP's built in magic methods are also ignored.
+All PHP's built in magic methods are ignored automatically.
 
 #### View models as responses
 
