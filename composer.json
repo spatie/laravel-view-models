@@ -1,11 +1,11 @@
 {
-    "name": "spatie/laravel-viewmodel",
+    "name": "spatie/laravel-view-models",
     "description": "View models in Laravel",
     "keywords": [
         "spatie",
-        "laravel-viewmodel"
+        "laravel-view-models"
     ],
-    "homepage": "https://github.com/spatie/laravel-viewmodel",
+    "homepage": "https://github.com/spatie/laravel-view-models",
     "license": "MIT",
     "authors": [
         {

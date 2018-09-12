@@ -1,9 +1,9 @@
 # View models in Laravel
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/laravel-viewmodel.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-viewmodel)
-[![Build Status](https://img.shields.io/travis/spatie/laravel-viewmodel/master.svg?style=flat-square)](https://travis-ci.org/spatie/laravel-viewmodel)
-[![Quality Score](https://img.shields.io/scrutinizer/g/spatie/laravel-viewmodel.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie/laravel-viewmodel)
-[![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-viewmodel.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-viewmodel)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/laravel-view-models.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-view-models)
+[![Build Status](https://img.shields.io/travis/spatie/laravel-view-models/master.svg?style=flat-square)](https://travis-ci.org/spatie/laravel-view-models)
+[![Quality Score](https://img.shields.io/scrutinizer/g/spatie/laravel-view-models.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie/laravel-view-models)
+[![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-view-models.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-view-models)
 
 View models provide an abstraction for passing data to views.
 They allow a better separation of concerns, and provide more flexibility for the developer.
@@ -15,7 +15,7 @@ You can read more about the pattern itself [here](https://stitcher.io/blog/larav
 You can install the package via composer:
 
 ```bash
-composer require spatie/laravel-viewmodel
+composer require spatie/laravel-view-models
 ```
 
 ## Usage
