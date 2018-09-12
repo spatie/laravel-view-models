@@ -35,7 +35,7 @@ class ViewModelTest extends TestCase
     }
 
     /** @test */
-    public function callables_can_are_stored()
+    public function callables_can_be_stored()
     {
         $array = $this->viewModel->toArray();
 
@@ -51,7 +51,7 @@ class ViewModelTest extends TestCase
     }
 
     /** @test */
-    public function to_array_are_not_listed()
+    public function to_array_is_not_listed()
     {
         $array = $this->viewModel->toArray();
 
@@ -59,7 +59,7 @@ class ViewModelTest extends TestCase
     }
 
     /** @test */
-    public function to_response_are_not_listed()
+    public function to_response_is_not_listed()
     {
         $array = $this->viewModel->toArray();
 
