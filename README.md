@@ -134,7 +134,7 @@ class PostsController
 }
 ```
 
-Note that when the content-type header of the request is set to JSON, 
+Note that when the `Content-Type` header of the request is set to JSON, 
 this approach will also return JSON data instead of a rendered view.
 
 #### Exposing view functions
