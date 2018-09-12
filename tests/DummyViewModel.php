@@ -11,6 +11,11 @@ class DummyViewModel extends ViewModel
 
     protected $ignore = ['ignoredMethod'];
 
+    public function __construct()
+    {
+        // This one is here for testing purposes
+    }
+
     public function post(): stdClass
     {
         return (object) [
