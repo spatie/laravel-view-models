@@ -16,7 +16,7 @@ class ViewModel implements Arrayable, Responsable
 {
     protected $ignore = [];
 
-    protected $view = null;
+    protected $view = '';
 
     public function toArray(): array
     {
