@@ -1,0 +1,7 @@
+<?php namespace DummyNamespace;
+
+use Spatie\ViewModels\ViewModel;
+
+class DummyClass extends ViewModel  {
+    
+}

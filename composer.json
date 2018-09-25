@@ -19,6 +19,7 @@
         "php": "^7.1"
     },
     "require-dev": {
+        "mikey179/vfsStream": "^1.6",
         "orchestra/testbench": "^3.7",
         "phpunit/phpunit": "^7.3"
     },
@@ -39,5 +40,12 @@
     },
     "config": {
         "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Spatie\\ViewModels\\Providers\\ViewModelsServiceProvider"
+            ]
+        }
     }
 }
