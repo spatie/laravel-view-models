@@ -19,7 +19,7 @@ class ViewModelMakeCommandTest extends TestCase
 
         $this->assertContains('ViewModel created successfully.', Artisan::output());
 
-        $shouldOutputFilePath = $this->app['path'] . '/ViewModels/HomeViewModel.php';
+        $shouldOutputFilePath = $this->app['path'].'/ViewModels/HomeViewModel.php';
 
         $this->assertTrue(File::exists($shouldOutputFilePath), 'File exists in default app/ViewModels folder');
 
@@ -42,7 +42,7 @@ class ViewModelMakeCommandTest extends TestCase
 
         $this->assertContains('ViewModel created successfully.', Artisan::output());
 
-        $shouldOutputFilePath = $this->app['path'] . '/Blog/PostsViewModel.php';
+        $shouldOutputFilePath = $this->app['path'].'/Blog/PostsViewModel.php';
 
         $this->assertTrue(File::exists($shouldOutputFilePath), 'File exists in custom app/Blog folder');
 

@@ -35,6 +35,6 @@ class TestCase extends OrchestraTestCase
 
     protected function getPackageProviders($app)
     {
-        return [ ViewModelsServiceProvider::class ];
+        return [ViewModelsServiceProvider::class];
     }
 }
