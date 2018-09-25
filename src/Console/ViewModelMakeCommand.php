@@ -2,6 +2,7 @@
 
 namespace Spatie\ViewModels\Console;
 
+use Illuminate\Support\Str;
 use Illuminate\Console\GeneratorCommand;
 use Symfony\Component\Console\Input\InputOption;
 
@@ -22,14 +23,18 @@ class ViewModelMakeCommand extends GeneratorCommand
         }
     }
 
-    protected function getDefaultNamespace($rootNamespace)
-    {
-        return $rootNamespace.'\ViewModels';
-    }
-
     protected function getStub()
     {
         return __DIR__.'/../../stubs/DummyViewModel.stub';
+    }
+
+    protected function getDefaultNamespace($rootNamespace)
+    {
+        if ($this->isCustomNamespace()) {
+            return $rootNamespace;
+        }
+
+        return $rootNamespace.'\ViewModels';
     }
 
     protected function getOptions(): array
@@ -37,5 +42,10 @@ class ViewModelMakeCommand extends GeneratorCommand
         return [
             ['force', null, InputOption::VALUE_NONE, 'Create the class even if the view-model already exists'],
         ];
+    }
+
+    protected function isCustomNamespace(): bool
+    {
+        return Str::contains($this->argument('name'), '/');
     }
 }
