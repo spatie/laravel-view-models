@@ -6,9 +6,8 @@ use Spatie\ViewModels\ViewModel;
 
 class DummyClass extends ViewModel
 {
-    protected $ignore = [
-        'ignoredMethods',
-    ];
-
-    public $property = 'abc';
+    public function __construct()
+    {
+        //
+    }
 }
