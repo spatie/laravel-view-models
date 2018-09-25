@@ -29,6 +29,6 @@ class FakeViewModelMakeCommand extends ViewModelMakeCommand
             return self::$directory.'/'.str_replace('\\', '/', $name).'.php';
         }
 
-        return self::$directory.'/'.str_replace('\\', '/', 'ViewModels/' . $name).'.php';
+        return self::$directory.'/'.str_replace('\\', '/', 'ViewModels/'.$name).'.php';
     }
 }

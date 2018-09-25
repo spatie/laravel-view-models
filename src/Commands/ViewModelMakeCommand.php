@@ -55,7 +55,7 @@ class ViewModelMakeCommand extends GeneratorCommand
             return $this->laravel['path'].'/'.str_replace('\\', '/', $name).'.php';
         }
 
-        return $this->laravel['path'].'/'.str_replace('\\', '/', 'ViewModels/' . $name).'.php';
+        return $this->laravel['path'].'/'.str_replace('\\', '/', 'ViewModels/'.$name).'.php';
     }
 
     /**
@@ -79,7 +79,7 @@ class ViewModelMakeCommand extends GeneratorCommand
     {
         $namespace = $this->hasNamespace($name) ?
                     $this->getNamespace($name) :
-                    $this->getNamespace($name) . '\\ViewModels';
+                    $this->getNamespace($name).'\\ViewModels';
 
         $stub = str_replace('DummyNamespace', $namespace, $stub);
 

@@ -22,10 +22,10 @@ class ViewModelMakeCommandTest extends TestCase
     public function can_create_a_view_model_in_the_default_directory()
     {
         Artisan::call('make:fake-view-model', [
-            'name' => 'RealViewModel'
+            'name' => 'RealViewModel',
         ]);
 
-        $generatedClassPath = FakeViewModelMakeCommand::getDirectory() . '/ViewModels/RealViewModel.php';
+        $generatedClassPath = FakeViewModelMakeCommand::getDirectory().'/ViewModels/RealViewModel.php';
         $this->assertFileExists($generatedClassPath);
         $this->assertFileIsReadable($generatedClassPath);
     }
@@ -34,10 +34,10 @@ class ViewModelMakeCommandTest extends TestCase
     public function can_create_a_view_model_in_a_custom_directory()
     {
         Artisan::call('make:fake-view-model', [
-            'name' => 'Custom\\RealViewModel'
+            'name' => 'Custom\\RealViewModel',
         ]);
 
-        $generatedClassPath = FakeViewModelMakeCommand::getDirectory() . '/Custom/RealViewModel.php';
+        $generatedClassPath = FakeViewModelMakeCommand::getDirectory().'/Custom/RealViewModel.php';
         $this->assertFileExists($generatedClassPath);
         $this->assertFileIsReadable($generatedClassPath);
     }
