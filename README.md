@@ -101,6 +101,42 @@ class PostViewModel extends ViewModel
 }
 ```
 
+You can generate a new view model using `make:view-model`
+
+`php artisan make:view-model PostViewModel`
+
+```php
+<?php
+
+use Spatie\ViewModels\ViewModel;
+
+namespace App\ViewModels;
+
+class PostViewModel extends ViewModel
+{
+    
+}
+```
+
+Also you can pass a custom namespace
+
+`php artisan make:view-model Custom\PostViewModel`
+
+This would be the result
+
+```php
+<?php
+
+use Spatie\ViewModels\ViewModel;
+
+namespace App\Custom;
+
+class PostViewModel extends ViewModel
+{
+    
+}
+```
+
 All PHP's built in magic methods are ignored automatically.
 
 #### View models as responses
