@@ -22,6 +22,11 @@ class ViewModelMakeCommand extends GeneratorCommand
         }
     }
 
+    protected function getDefaultNamespace($rootNamespace)
+    {
+        return $rootNamespace.'\ViewModels';
+    }
+
     protected function getStub()
     {
         return __DIR__.'/../../stubs/DummyViewModel.stub';
