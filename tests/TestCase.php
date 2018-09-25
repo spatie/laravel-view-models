@@ -31,4 +31,12 @@ class TestCase extends OrchestraTestCase
     {
         return json_decode($response->getContent(), true);
     }
+
+    protected function getPackageProviders($app)
+    {
+        return [
+            'Spatie\ViewModels\Providers\ViewModelsServiceProvider',
+            'Spatie\ViewModels\Tests\Fakes\FakeViewModelsServiceProvider',
+        ];
+    }
 }
