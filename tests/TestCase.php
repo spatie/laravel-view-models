@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 use Symfony\Component\HttpFoundation\Response;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
+use Spatie\ViewModels\Providers\ViewModelsServiceProvider;
 
 class TestCase extends OrchestraTestCase
 {
@@ -30,5 +31,10 @@ class TestCase extends OrchestraTestCase
     protected function getResponseBody(Response $response): array
     {
         return json_decode($response->getContent(), true);
+    }
+
+    protected function getPackageProviders($app)
+    {
+        return [ViewModelsServiceProvider::class];
     }
 }

@@ -18,6 +18,30 @@ You can install the package via composer:
 composer require spatie/laravel-view-models
 ```
 
+For Laravel versions 5.5+, the ServiceProvider will be automatically discovered.
+Otherwise, add to `config/app.php`, under `providers` key:
+
+```php
+    'providers' => [
+        (...)
+        /*
+         * Package Service Providers...
+         */
+        \Spatie\ViewModels\Providers\ViewModelsServiceProvider::class,
+```
+
+To generate a new ViewModel, into `App\ViewModels` namespace:
+
+```bash
+php artisan make:view-model HomepageViewModel
+```
+
+or into a custom namespace, say, `App\Blog`
+
+```bash
+php artisan make:view-model Blog/PostsViewModel
+```
+
 ## Usage
 
 A view model is a class where you can put some complex logic for your views. This will make your controllers a bit lighter.  You can create a view model by extending the provided `Spatie\ViewModels\ViewModel`.
