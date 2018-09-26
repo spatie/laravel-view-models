@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-view-models` will be documented in this file
 
+## 1.1.0 - 2018-09-26
+
+- Add a `make:view-model` command
+
 ## 1.0.2 - 2018-09-12
 
 - Properly ignore magic methods

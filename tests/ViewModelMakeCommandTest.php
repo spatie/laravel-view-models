@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Artisan;
 class ViewModelMakeCommandTest extends TestCase
 {
     /** @test */
-    public function creates_file_in_default_folder()
+    public function it_can_create_a_view_model()
     {
         $exitCode = Artisan::call('make:view-model', [
             'name' => 'HomeViewModel',
@@ -31,7 +31,7 @@ class ViewModelMakeCommandTest extends TestCase
     }
 
     /** @test */
-    public function creates_file_in_custom_folder()
+    public function it_can_create_a_view_model_with_a_custom_namespace()
     {
         $exitCode = Artisan::call('make:view-model', [
             'name' => 'Blog/PostsViewModel',
