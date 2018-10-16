@@ -10,6 +10,8 @@ Have you ever made a controller where you had to do a lot of work to prepare var
 
 You'll find a more detailed explanation and some good examples in [this blogpost on Stitcher.io](https://stitcher.io/blog/laravel-view-models).
 
+Laravel's native view composers are not the same as the view models provided by this package. To learn more about the differences head over to [this blogpost on Stitcher.io](https://stitcher.io/blog/laravel-view-models-vs-view-composers).
+
 ## Installation
 
 You can install the package via composer:
