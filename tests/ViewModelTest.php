@@ -96,7 +96,7 @@ class ViewModelTest extends TestCase
     }
 
     /** @test */
-    public function when_the_request_does_not_ask_for_a_json_response_and_a_view_is_set_it_will_return_a_regular_response()
+    public function it_will_return_a_regular_view_when_a_view_is_set_and_a_json_response_is_not_requested()
     {
         $response = $this->viewModel->view('test')->toResponse($this->createRequest());
 
@@ -104,7 +104,7 @@ class ViewModelTest extends TestCase
     }
 
     /** @test */
-    public function when_the_request_asks_for_a_json_response_to_response_returns_a_json_response_by_default()
+    public function it_will_return_a_json_response_if_a_json_response_is_requested_even_if_a_view_is_set()
     {
         $response = $this->viewModel->view('test')->toResponse($this->createRequest([
             'Accept' => 'application/json',
