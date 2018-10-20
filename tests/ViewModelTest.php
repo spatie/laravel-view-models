@@ -85,9 +85,7 @@ class ViewModelTest extends TestCase
     /** @test */
     public function to_response_returns_json_by_default()
     {
-        $response = $this->viewModel->toResponse($this->createRequest([
-            'Content-Type' => 'application/json',
-        ]));
+        $response = $this->viewModel->toResponse($this->createRequest());
 
         $this->assertInstanceOf(JsonResponse::class, $response);
 
@@ -98,12 +96,20 @@ class ViewModelTest extends TestCase
     }
 
     /** @test */
-    public function to_response_returns_a_view_response_by_default()
+    public function when_the_request_does_not_ask_for_a_json_response_and_a_view_is_set_it_will_return_a_regular_response()
     {
-        $response = $this->viewModel->view('test')->toResponse($this->createRequest([
-            'Content-Type' => 'application/json',
-        ]));
+        $response = $this->viewModel->view('test')->toResponse($this->createRequest());
 
         $this->assertInstanceOf(Response::class, $response);
+    }
+
+    /** @test */
+    public function when_the_request_asks_for_a_json_response_to_response_returns_a_json_response_by_default()
+    {
+        $response = $this->viewModel->view('test')->toResponse($this->createRequest([
+            'Accept' => 'application/json',
+        ]));
+
+        $this->assertInstanceOf(JsonResponse::class, $response);
     }
 }
