@@ -25,5 +25,3 @@ before_script:
   - travis_retry composer require "laravel/framework=${LARAVEL}" --prefer-source --no-interaction --no-suggest
   - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-source
 
-script:
-  - ./vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
