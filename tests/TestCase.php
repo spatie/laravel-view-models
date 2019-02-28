@@ -10,7 +10,7 @@ use Spatie\ViewModels\Providers\ViewModelsServiceProvider;
 
 class TestCase extends OrchestraTestCase
 {
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 

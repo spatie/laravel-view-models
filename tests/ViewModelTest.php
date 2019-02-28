@@ -10,7 +10,7 @@ class ViewModelTest extends TestCase
     /** @var \Spatie\ViewModels\ViewModel */
     protected $viewModel;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 
