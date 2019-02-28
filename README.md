@@ -95,7 +95,7 @@ All public methods and properties in a view model are automatically exposed to t
 ```php
 class PostViewModel extends ViewModel
 {
-    protected $ignored = ['ignoredMethod'];
+    protected $ignore = ['ignoredMethod'];
 
     // …
     
