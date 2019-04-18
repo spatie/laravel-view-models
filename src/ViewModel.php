@@ -9,12 +9,15 @@ use ReflectionProperty;
 use Illuminate\Support\Str;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Traits\Macroable;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Contracts\Support\Responsable;
 use Symfony\Component\HttpFoundation\Response;
 
 abstract class ViewModel implements Arrayable, Responsable
 {
+    use Macroable;
+
     protected $ignore = [];
 
     protected $view = '';
@@ -66,7 +69,15 @@ abstract class ViewModel implements Arrayable, Responsable
                 return [$method->getName() => $this->createVariableFromMethod($method)];
             });
 
-        return $publicProperties->merge($publicMethods);
+        $macroMethods = collect(static::$macros)
+            ->reject(function ($macro, $method) {
+                return $this->shouldIgnore($method);
+            })
+            ->mapWithKeys(function ($macro, $method) {
+                return [$method => $this->{$method}()];
+            });
+
+        return $publicProperties->merge($publicMethods)->merge($macroMethods);
     }
 
     protected function shouldIgnore(string $methodName): bool

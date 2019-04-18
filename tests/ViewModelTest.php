@@ -14,6 +14,13 @@ class ViewModelTest extends TestCase
     {
         parent::setUp();
 
+        DummyViewModel::macro('product', function () {
+            return [
+                'title' => 'title',
+                'body' => 'body',
+            ];
+        });
+
         $this->viewModel = new DummyViewModel();
     }
 
@@ -32,6 +39,14 @@ class ViewModelTest extends TestCase
         $array = $this->viewModel->toArray();
 
         $this->assertArrayHasKey('property', $array);
+    }
+
+    /** @test */
+    public function macro_methods_are_listed()
+    {
+        $array = $this->viewModel->toArray();
+
+        $this->assertArrayHasKey('product', $array);
     }
 
     /** @test */
