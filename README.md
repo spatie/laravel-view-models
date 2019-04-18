@@ -33,15 +33,15 @@ class PostViewModel extends ViewModel
     {
         $this->user = $user;
         $this->post = $post;
-        
-        $this->indexUrl = action([PostsController::class, 'index']); 
+
+        $this->indexUrl = action([PostsController::class, 'index']);
     }
-    
+
     public function post(): Post
     {
         return $this->post ?? new Post();
     }
-    
+
     public function categories(): Collection
     {
         return Category::canBeUsedBy($this->user)->get();
@@ -59,17 +59,17 @@ class PostsController
         $viewModel = new PostViewModel(
             current_user()
         );
-        
+
         return view('blog.form', $viewModel);
     }
-    
+
     public function edit(Post $post)
     {
         $viewModel = new PostViewModel(
-            current_user(), 
+            current_user(),
             $post
         );
-    
+
         return view('blog.form', $viewModel);
     }
 }
@@ -98,7 +98,7 @@ class PostViewModel extends ViewModel
     protected $ignore = ['ignoredMethod'];
 
     // …
-    
+
     public function ignoredMethod() { /* … */ }
 }
 ```
@@ -107,7 +107,7 @@ All PHP's built in magic methods are ignored automatically.
 
 #### View models as responses
 
-It's possible to directly return a view model from a controller. 
+It's possible to directly return a view model from a controller.
 By default, a JSON response with the data is returned.
 
 ```php
@@ -116,7 +116,7 @@ class PostsController
     public function update(Request $request, Post $post)
     {
         // …
-        
+
         return new PostViewModel($post);
     }
 }
@@ -132,13 +132,13 @@ class PostsController
     public function update(Request $request, Post $post)
     {
         // …
-        
+
         return (new PostViewModel($post))->view('post.form');
     }
 }
 ```
 
-Note that when the `Content-Type` header of the request is set to JSON, 
+Note that when the `Content-Type` header of the request is set to JSON,
 this approach will also return JSON data instead of a rendered view.
 
 #### Exposing view functions
@@ -179,6 +179,23 @@ php artisan make:view-model "Blog/PostsViewModel"
 
 This view model will have the `App\Blog\ViewModels` namespace and will be saved in `app/Blog/ViewModels`.
 
+### Extending
+
+The `macro` method allows add more variables to view models without edit a file. Example in `Providers/AppServiceProvider.php`:
+
+```php
+use App\ViewModels\PostViewModel;
+
+class AppServiceProvider extends ServiceProvider
+{
+    public function boot()
+    {
+        PostViewModel::macro('relatedPosts', function () {
+            return 'Some posts';
+        });
+    }
+}
+```
 
 ### Changelog
 
@@ -209,7 +226,7 @@ We publish all received postcards [on our company website](https://spatie.be/en/
 
 Spatie is a webdesign agency based in Antwerp, Belgium. You'll find an overview of all our open source projects [on our website](https://spatie.be/opensource).
 
-Does your business depend on our contributions? Reach out and support us on [Patreon](https://www.patreon.com/spatie). 
+Does your business depend on our contributions? Reach out and support us on [Patreon](https://www.patreon.com/spatie).
 All pledges will be dedicated to allocating workforce on maintenance and new awesome stuff.
 
 ## License
