@@ -17,7 +17,7 @@ class ViewModelMakeCommandTest extends TestCase
 
         $this->assertEquals(0, $exitCode);
 
-        $this->assertStringContainsString('ViewModel created successfully.', Artisan::output());
+        $this->assertContains('ViewModel created successfully.', Artisan::output());
 
         $shouldOutputFilePath = $this->app['path'].'/ViewModels/HomeViewModel.php';
 
@@ -25,9 +25,9 @@ class ViewModelMakeCommandTest extends TestCase
 
         $contents = File::get($shouldOutputFilePath);
 
-        $this->assertStringContainsString('namespace App\ViewModels;', $contents);
+        $this->assertContains('namespace App\ViewModels;', $contents);
 
-        $this->assertStringContainsString('class HomeViewModel extends ViewModel', $contents);
+        $this->assertContains('class HomeViewModel extends ViewModel', $contents);
     }
 
     /** @test */
@@ -40,7 +40,7 @@ class ViewModelMakeCommandTest extends TestCase
 
         $this->assertEquals(0, $exitCode);
 
-        $this->assertStringContainsString('ViewModel created successfully.', Artisan::output());
+        $this->assertContains('ViewModel created successfully.', Artisan::output());
 
         $shouldOutputFilePath = $this->app['path'].'/Blog/PostsViewModel.php';
 
@@ -48,8 +48,8 @@ class ViewModelMakeCommandTest extends TestCase
 
         $contents = File::get($shouldOutputFilePath);
 
-        $this->assertStringContainsString('namespace App\Blog;', $contents);
+        $this->assertContains('namespace App\Blog;', $contents);
 
-        $this->assertStringContainsString('class PostsViewModel extends ViewModel', $contents);
+        $this->assertContains('class PostsViewModel extends ViewModel', $contents);
     }
 }
