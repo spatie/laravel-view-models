@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-view-models` will be documented in this file
 
+## 1.2.0 - 2019-09-04
+
+- Add support or Laravel 6.0
+
 ## 1.1.1 - 2018-02-28
 
 - Add support for Laravel 5.8
