@@ -20,6 +20,11 @@ env:
     - COMPOSER_FLAGS="--prefer-lowest" LARAVEL=5.8.*
     - COMPOSER_FLAGS="--prefer-lowest" LARAVEL=6.*
 
+matrix:
+  exclude:
+    - php: 7.1
+      env: LARAVEL=^6.0
+
 before_install:
   - travis_retry composer self-update
 
