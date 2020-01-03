@@ -17,6 +17,8 @@ abstract class ViewModel implements Arrayable, Responsable
 {
     protected $ignore = [];
 
+    protected $destructure = [];
+
     protected $view = '';
 
     public function toArray(): array
@@ -55,6 +57,10 @@ abstract class ViewModel implements Arrayable, Responsable
                 return $this->shouldIgnore($property->getName());
             })
             ->mapWithKeys(function (ReflectionProperty $property) {
+                if (\in_array($property->getName(), $this->destructure, true)) {
+                    return collect($this->{$property->getName()})->toArray();
+                }
+
                 return [$property->getName() => $this->{$property->getName()}];
             });
 
@@ -63,6 +69,10 @@ abstract class ViewModel implements Arrayable, Responsable
                 return $this->shouldIgnore($method->getName());
             })
             ->mapWithKeys(function (ReflectionMethod $method) {
+                if (\in_array($method->getName(), $this->destructure, true)) {
+                    return collect($this->createVariableFromMethod($method))->toArray();
+                }
+
                 return [$method->getName() => $this->createVariableFromMethod($method)];
             });
 

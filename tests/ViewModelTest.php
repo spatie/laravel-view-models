@@ -112,4 +112,20 @@ class ViewModelTest extends TestCase
 
         $this->assertInstanceOf(JsonResponse::class, $response);
     }
+
+    /** @test */
+    public function destructured_methods_are_listed()
+    {
+        $array = $this->viewModel->toArray();
+
+        $this->assertArrayHasKey('destructuredFromMethod', $array);
+    }
+
+    /** @test */
+    public function destructured_properties_are_listed()
+    {
+        $array = $this->viewModel->toArray();
+
+        $this->assertArrayHasKey('destructuredFromProperty', $array);
+    }
 }

@@ -103,6 +103,23 @@ class PostViewModel extends ViewModel
 }
 ```
 
+All public methods and properties in a view model are encapsulated by their name.
+If you want a specific method or property to be destructured in your view, you can performa a shallow destructuring.
+
+```php
+class PostViewModel extends ViewModel
+{
+    protected $destructure = ['destructuredMethod', 'destructuredProperty'];
+
+    public $destructuredProperty = [ /* … */ ];
+
+    public function destructuredMethod(): array
+    {
+        return [ /* … */ ];
+    }
+}
+```
+
 All PHP's built in magic methods are ignored automatically.
 
 #### View models as responses

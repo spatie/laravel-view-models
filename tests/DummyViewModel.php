@@ -9,7 +9,11 @@ class DummyViewModel extends ViewModel
 {
     public $property = 'abc';
 
+    public $destructuredProperty = ['destructuredFromProperty' => true];
+
     protected $ignore = ['ignoredMethod'];
+
+    protected $destructure = ['destructuredMethod', 'destructuredProperty'];
 
     public function __construct()
     {
@@ -39,6 +43,11 @@ class DummyViewModel extends ViewModel
     public function ignoredMethod(): bool
     {
         return true;
+    }
+
+    public function destructuredMethod(): array
+    {
+        return ['destructuredFromMethod' => true];
     }
 
     public function callableMethod(string $name): string
