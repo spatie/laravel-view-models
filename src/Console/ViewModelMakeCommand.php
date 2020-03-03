@@ -2,8 +2,8 @@
 
 namespace Spatie\ViewModels\Console;
 
-use Illuminate\Support\Str;
 use Illuminate\Console\GeneratorCommand;
+use Illuminate\Support\Str;
 use Symfony\Component\Console\Input\InputOption;
 
 class ViewModelMakeCommand extends GeneratorCommand

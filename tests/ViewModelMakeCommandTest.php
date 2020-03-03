@@ -2,8 +2,8 @@
 
 namespace Spatie\ViewModels\Tests;
 
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\File;
 
 class ViewModelMakeCommandTest extends TestCase
 {
