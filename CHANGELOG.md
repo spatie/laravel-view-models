@@ -2,9 +2,13 @@
 
 All notable changes to `laravel-view-models` will be documented in this file
 
+## 1.3.0 - 2020-03-03
+
+- Add support for Laravel 7
+
 ## 1.2.0 - 2019-09-04
 
-- Add support or Laravel 6.0
+- Add support or Laravel 6
 
 ## 1.1.1 - 2018-02-28
 
