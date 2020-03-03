@@ -2,8 +2,8 @@
 
 namespace Spatie\ViewModels\Tests;
 
-use stdClass;
 use Spatie\ViewModels\ViewModel;
+use stdClass;
 
 class DummyViewModel extends ViewModel
 {

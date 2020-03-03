@@ -2,8 +2,8 @@
 
 namespace Spatie\ViewModels\Tests;
 
-use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Response;
 
 class ViewModelTest extends TestCase
 {
