@@ -9,7 +9,7 @@ jobs:
             fail-fast: false
             matrix:
                 os: [ubuntu-latest, windows-latest]
-                php: [7.4]
+                php: [7.4, 8.0]
                 laravel: [7.*, 8.*]
                 dependency-version: [prefer-lowest, prefer-stable]
                 include:
@@ -39,6 +39,7 @@ jobs:
 
             -   name: Install dependencies
                 run: |
+                    composer remove --dev friendsofphp/php-cs-fixer --no-interaction --no-update
                     composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update
                     composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction --no-suggest
 
