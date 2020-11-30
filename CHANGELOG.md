@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-view-models` will be documented in this file
 
+## 1.3.2 - 2020-11-30
+
+- add support for PHP 8
+
 ## 1.3.1 - 2020-08-09
 
 - Add support for Laravel 8
