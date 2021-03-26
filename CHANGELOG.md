@@ -2,6 +2,13 @@
 
 All notable changes to `laravel-view-models` will be documented in this file
 
+## 2.0.0 - unreleased
+
+- Require PHP 8+
+- Drop support for PHP 7.x
+- Implement `spatie/laravel-package-tools`
+- Move Service Provider to `src` directory to match structure of other packages
+
 ## 1.3.2 - 2020-11-30
 
 - add support for PHP 8
