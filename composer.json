@@ -17,7 +17,8 @@
     ],
     "require": {
         "php": "^8.0",
-        "illuminate/support": "^7.0|^8.0"
+        "illuminate/support": "^7.0|^8.0",
+        "spatie/laravel-package-tools": "^1.6"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.16",
