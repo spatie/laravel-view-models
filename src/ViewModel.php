@@ -39,7 +39,7 @@ abstract class ViewModel implements Arrayable, Responsable
         return new JsonResponse($this->items());
     }
 
-    public function view(string $view): self
+    public function view(string $view): static
     {
         $this->view = $view;
 
