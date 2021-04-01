@@ -2,8 +2,8 @@
 
 namespace Spatie\ViewModels;
 
-use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Spatie\LaravelPackageTools\Package;
+use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Spatie\ViewModels\Console\ViewModelMakeCommand;
 
 class ViewModelsServiceProvider extends PackageServiceProvider
