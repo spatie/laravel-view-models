@@ -17,7 +17,7 @@ abstract class ViewModel implements Arrayable, Responsable
 {
     protected $ignore = [];
 
-    protected $view = '';
+    protected string $view = '';
 
     public function toArray(): array
     {
@@ -39,7 +39,7 @@ abstract class ViewModel implements Arrayable, Responsable
         return new JsonResponse($this->items());
     }
 
-    public function view(string $view): ViewModel
+    public function view(string $view): static
     {
         $this->view = $view;
 
@@ -75,7 +75,7 @@ abstract class ViewModel implements Arrayable, Responsable
             return true;
         }
 
-        return in_array($methodName, $this->ignoredMethods());
+        return in_array($methodName, $this->ignoredMethods(), true);
     }
 
     protected function ignoredMethods(): array
@@ -87,7 +87,7 @@ abstract class ViewModel implements Arrayable, Responsable
         ], $this->ignore);
     }
 
-    protected function createVariableFromMethod(ReflectionMethod $method)
+    protected function createVariableFromMethod(ReflectionMethod $method): mixed
     {
         if ($method->getNumberOfParameters() === 0) {
             return $this->{$method->getName()}();
