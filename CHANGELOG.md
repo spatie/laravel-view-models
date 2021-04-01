@@ -6,6 +6,7 @@ All notable changes to `laravel-view-models` will be documented in this file
 
 - Require PHP 8+
 - Drop support for PHP 7.x
+- Drop support for Laravel 7.x
 - Implement `spatie/laravel-package-tools`
 - Move Service Provider to `src` directory to match structure of other packages
 
