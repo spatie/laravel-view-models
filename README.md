@@ -33,6 +33,10 @@ A view model is a class where you can put some complex logic for your views. Thi
 ```php
 class PostViewModel extends ViewModel
 {
+    public $user;
+
+    public $post;
+    
     public $indexUrl = null;
 
     public function __construct(User $user, Post $post = null)
