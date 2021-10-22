@@ -4,6 +4,7 @@ namespace Spatie\ViewModels\Tests;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 
 class ViewModelTest extends TestCase
 {
@@ -24,6 +25,15 @@ class ViewModelTest extends TestCase
 
         $this->assertArrayHasKey('post', $array);
         $this->assertArrayHasKey('categories', $array);
+    }
+
+    /** @test */
+    public function public_methods_are_listed_and_can_be_dependency_injected()
+    {
+        $array = $this->viewModel->toArray();
+
+        $this->assertInstanceOf(Auth::class, $array['someService'][0]);
+        $this->assertEquals('James', $array['someService'][1]);
     }
 
     /** @test */

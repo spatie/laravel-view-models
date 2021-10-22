@@ -2,6 +2,7 @@
 
 namespace Spatie\ViewModels\Tests;
 
+use Illuminate\Support\Facades\Auth;
 use Spatie\ViewModels\ViewModel;
 use stdClass;
 
@@ -22,6 +23,11 @@ class DummyViewModel extends ViewModel
             'title' => 'title',
             'body' => 'body',
         ];
+    }
+
+    public function someService(Auth $auth, $somethingElse = 'James')
+    {
+        return [$auth, $somethingElse];
     }
 
     public function categories(): array

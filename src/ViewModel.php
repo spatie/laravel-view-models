@@ -93,6 +93,17 @@ abstract class ViewModel implements Arrayable, Responsable
             return $this->{$method->getName()}();
         }
 
-        return Closure::fromCallable([$this, $method->getName()]);
+        $parameters = [];
+
+        foreach($method->getParameters() as $parameter){
+            if($class = $parameter->getClass()){
+                $parameters[] = app($class . '::class');
+            }
+        }
+
+        return function($default = null) use($method, $parameters){
+            $parameters[] = $default;
+            return $this->{$method->getName()}($parameters);
+        };
     }
 }
