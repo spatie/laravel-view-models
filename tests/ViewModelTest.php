@@ -32,8 +32,7 @@ class ViewModelTest extends TestCase
     {
         $array = $this->viewModel->toArray();
 
-        $this->assertInstanceOf(Auth::class, $array['someService'][0]);
-        $this->assertEquals('James', $array['someService'][1]);
+        $this->assertInstanceOf(Auth::class, $array['someService']());
     }
 
     /** @test */
@@ -103,6 +102,16 @@ class ViewModelTest extends TestCase
 
         $this->assertArrayHasKey('post', $array);
         $this->assertArrayHasKey('categories', $array);
+    }
+
+    /** @test */
+    public function it_will_be_able_render_di_params()
+    {
+        $this->markTestIncomplete('WIP');
+
+        $response = $this->viewModel->view('di-test')->toResponse($this->createRequest());
+
+        $this->assertInstanceOf(Response::class, $response);
     }
 
     /** @test */

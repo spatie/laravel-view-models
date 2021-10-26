@@ -25,11 +25,6 @@ class DummyViewModel extends ViewModel
         ];
     }
 
-    public function someService(Auth $auth, $somethingElse = 'James')
-    {
-        return [$auth, $somethingElse];
-    }
-
     public function categories(): array
     {
         return [
@@ -50,5 +45,10 @@ class DummyViewModel extends ViewModel
     public function callableMethod(string $name): string
     {
         return $name;
+    }
+
+    public function someService(Auth $auth)
+    {
+        return $auth;
     }
 }

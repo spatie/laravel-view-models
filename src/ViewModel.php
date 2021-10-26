@@ -96,14 +96,15 @@ abstract class ViewModel implements Arrayable, Responsable
         $parameters = [];
 
         foreach($method->getParameters() as $parameter){
-            if($class = $parameter->getClass()){
-                $parameters[] = app($class . '::class');
+            if($parameter->getType() !== null && class_exists($class = $parameter->getType()->getName())){
+                $parameters[] = app($class);
             }
         }
 
-        return function($default = null) use($method, $parameters){
-            $parameters[] = $default;
-            return $this->{$method->getName()}($parameters);
+        return function () use ($method, $parameters) {
+            $parameters = array_merge($parameters, func_get_args());
+
+            return call_user_func_array([$this, $method->getName()], $parameters);
         };
     }
 }
