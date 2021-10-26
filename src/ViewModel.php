@@ -2,7 +2,6 @@
 
 namespace Spatie\ViewModels;
 
-use Closure;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Contracts\Support\Responsable;
 use Illuminate\Http\JsonResponse;
@@ -95,8 +94,8 @@ abstract class ViewModel implements Arrayable, Responsable
 
         $parameters = [];
 
-        foreach($method->getParameters() as $parameter){
-            if($parameter->getType() !== null && class_exists($class = $parameter->getType()->getName())){
+        foreach ($method->getParameters() as $parameter) {
+            if ($parameter->getType() !== null && class_exists($class = $parameter->getType()->getName())) {
                 $parameters[] = app($class);
             }
         }
