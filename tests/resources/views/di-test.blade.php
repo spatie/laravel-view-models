@@ -1,1 +1,1 @@
-{{$someService()->user()}}
+{{$someService->someProperty}}

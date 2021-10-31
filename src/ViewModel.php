@@ -100,10 +100,12 @@ abstract class ViewModel implements Arrayable, Responsable
             }
         }
 
-        return function () use ($method, $parameters) {
+        $return = function () use ($method, $parameters) {
             $parameters = array_merge($parameters, func_get_args());
 
             return call_user_func_array([$this, $method->getName()], $parameters);
         };
+
+        return count($method->getParameters()) === count($parameters) ? $return() : $return;
     }
 }

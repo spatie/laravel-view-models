@@ -4,7 +4,7 @@ namespace Spatie\ViewModels\Tests;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Auth;
+use Spatie\ViewModels\Tests\Stubs\SomeServiceStub;
 
 class ViewModelTest extends TestCase
 {
@@ -32,7 +32,7 @@ class ViewModelTest extends TestCase
     {
         $array = $this->viewModel->toArray();
 
-        $this->assertInstanceOf(Auth::class, $array['someService']());
+        $this->assertInstanceOf(SomeServiceStub::class, $array['someService']);
     }
 
     /** @test */
@@ -107,11 +107,10 @@ class ViewModelTest extends TestCase
     /** @test */
     public function it_will_be_able_render_di_params()
     {
-        $this->markTestIncomplete('WIP');
-
         $response = $this->viewModel->view('di-test')->toResponse($this->createRequest());
 
         $this->assertInstanceOf(Response::class, $response);
+        $this->assertStringContainsString('James', $response->getContent());
     }
 
     /** @test */

@@ -2,7 +2,7 @@
 
 namespace Spatie\ViewModels\Tests;
 
-use Illuminate\Support\Facades\Auth;
+use Spatie\ViewModels\Tests\Stubs\SomeServiceStub;
 use Spatie\ViewModels\ViewModel;
 use stdClass;
 
@@ -47,8 +47,8 @@ class DummyViewModel extends ViewModel
         return $name;
     }
 
-    public function someService(Auth $auth)
+    public function someService(SomeServiceStub $view)
     {
-        return $auth;
+        return $view;
     }
 }
