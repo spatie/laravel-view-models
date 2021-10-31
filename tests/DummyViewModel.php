@@ -47,8 +47,8 @@ class DummyViewModel extends ViewModel
         return $name;
     }
 
-    public function someService(SomeServiceStub $view)
+    public function someService(SomeServiceStub $someService)
     {
-        return $view;
+        return $someService;
     }
 }
