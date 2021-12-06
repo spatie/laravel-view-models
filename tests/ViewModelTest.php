@@ -112,4 +112,12 @@ class ViewModelTest extends TestCase
 
         $this->assertInstanceOf(JsonResponse::class, $response);
     }
+
+    /** @test */
+    public function it_will_allow_params_to_be_passed_to_view_method()
+    {
+        $array = $this->viewModel->view('test', ['name' => 'james'])->toArray();
+
+        $this->assertArrayHasKey('name', $array);
+    }
 }
