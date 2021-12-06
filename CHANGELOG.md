@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-view-models` will be documented in this file
 
+## 1.4.0 - 2021-12-06
+
+- Allow $data to be passed to view (#39)
+
 ## 1.3.2 - 2020-11-30
 
 - add support for PHP 8
