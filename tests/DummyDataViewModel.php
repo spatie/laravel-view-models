@@ -3,7 +3,6 @@
 
 namespace Spatie\ViewModels\Tests;
 
-
 use Spatie\ViewModels\ViewModel;
 
 class DummyDataViewModel extends ViewModel

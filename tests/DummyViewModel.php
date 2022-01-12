@@ -20,7 +20,7 @@ class DummyViewModel extends ViewModel
     {
         return [
             'apple',
-            'orange'
+            'orange',
         ];
     }
 
