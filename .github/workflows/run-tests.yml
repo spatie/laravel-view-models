@@ -10,9 +10,11 @@ jobs:
             matrix:
                 os: [ubuntu-latest, windows-latest]
                 php: [7.4, 8.0, 8.1]
-                laravel: [8.*]
+                laravel: [9.*, 8.*]
                 dependency-version: [prefer-lowest, prefer-stable]
                 include:
+                    -   laravel: 9.*
+                        testbench: 7.*
                     -   laravel: 8.*
                         testbench: ^6.23
 
@@ -33,7 +35,7 @@ jobs:
                 run: |
                     composer remove --dev friendsofphp/php-cs-fixer --no-interaction --no-update
                     composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update
-                    composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction --no-suggest
+                    composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction
 
             -   name: Execute tests
                 run: vendor/bin/phpunit

@@ -17,11 +17,10 @@
     ],
     "require": {
         "php": "^7.3|^8.0",
-        "illuminate/support": "^8.0"
+        "illuminate/support": "^8.0|^9.0"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "^2.16",
-        "orchestra/testbench": "^6.23"
+        "orchestra/testbench": "^6.23|^7.0"
     },
     "autoload": {
         "psr-4": {
