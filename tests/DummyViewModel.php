@@ -16,6 +16,14 @@ class DummyViewModel extends ViewModel
         // This one is here for testing purposes
     }
 
+    public function data()
+    {
+        return [
+            'apple',
+            'orange'
+        ];
+    }
+
     public function post(): stdClass
     {
         return (object) [

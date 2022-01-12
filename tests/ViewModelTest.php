@@ -120,4 +120,15 @@ class ViewModelTest extends TestCase
 
         $this->assertArrayHasKey('name', $array);
     }
+
+    /** @test */
+    public function it_will_not_duplicate_the_data_attribute()
+    {
+        $array = (new DummyDataViewModel(['orange', 'apples']))
+            ->view('test', ['name' => 'james'])->toArray();
+
+        $this->assertArrayHasKey('name', $array);
+        $this->assertArrayHasKey('data', $array);
+        $this->assertSame(['orange', 'apples'], $array['data']);
+    }
 }
