@@ -4,6 +4,14 @@ All notable changes to `laravel-view-models` will be documented in this file
 
 ## 1.5.1 - 2022-01-13
 
+## What's Changed
+
+- Fix for Data Property duplication by @JamesFreeman in https://github.com/spatie/laravel-view-models/pull/41
+
+**Full Changelog**: https://github.com/spatie/laravel-view-models/compare/1.5.0...1.5.1
+
+## 1.5.1 - 2022-01-13
+
 - Fix for Data Property duplication (#41)
 
 ## 1.5.0 - 2022-01-12
