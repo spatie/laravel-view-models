@@ -19,7 +19,7 @@ abstract class ViewModel implements Arrayable, Responsable
 
     protected $view = '';
 
-    protected $data = [];
+    protected $_data = [];
 
     public function toArray(): array
     {
@@ -44,7 +44,7 @@ abstract class ViewModel implements Arrayable, Responsable
     public function view(string $view, array $data = []): ViewModel
     {
         $this->view = $view;
-        $this->data = $data;
+        $this->_data = $data;
 
         return $this;
     }
@@ -70,7 +70,7 @@ abstract class ViewModel implements Arrayable, Responsable
             });
 
 
-        return $publicProperties->merge($publicMethods)->merge($this->data);
+        return $publicProperties->merge($publicMethods)->merge($this->_data);
     }
 
     protected function shouldIgnore(string $methodName): bool
