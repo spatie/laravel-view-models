@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-view-models` will be documented in this file
 
+## 1.5.1 - 2022-01-13
+
+- Fix for Data Property duplication (#41)
+
 ## 1.5.0 - 2022-01-12
 
 - Allow Laravel 9
