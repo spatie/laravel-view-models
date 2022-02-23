@@ -30,10 +30,6 @@ class ViewModelMakeCommand extends GeneratorCommand
 
     protected function getDefaultNamespace($rootNamespace)
     {
-        if ($this->isCustomNamespace()) {
-            return $rootNamespace;
-        }
-
         return $rootNamespace.'\ViewModels';
     }
 
@@ -42,10 +38,5 @@ class ViewModelMakeCommand extends GeneratorCommand
         return [
             ['force', null, InputOption::VALUE_NONE, 'Create the class even if the view-model already exists'],
         ];
-    }
-
-    protected function isCustomNamespace(): bool
-    {
-        return Str::contains($this->argument('name'), '/');
     }
 }
