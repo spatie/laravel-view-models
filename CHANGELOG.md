@@ -2,6 +2,18 @@
 
 All notable changes to `laravel-view-models` will be documented in this file
 
+## 1.5.2 - 2022-02-23
+
+## What's Changed
+
+- Always use default ViewModels namespace as a prefix by @jdrieghe in https://github.com/spatie/laravel-view-models/pull/43
+
+## New Contributors
+
+- @jdrieghe made their first contribution in https://github.com/spatie/laravel-view-models/pull/43
+
+**Full Changelog**: https://github.com/spatie/laravel-view-models/compare/1.5.1...1.5.2
+
 ## 1.5.1 - 2022-01-13
 
 ## What's Changed
