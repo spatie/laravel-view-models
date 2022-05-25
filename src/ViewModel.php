@@ -15,11 +15,11 @@ use Symfony\Component\HttpFoundation\Response;
 
 abstract class ViewModel implements Arrayable, Responsable
 {
-    protected $ignore = [];
+    protected array $ignore = [];
 
-    protected $view = '';
+    protected string $view = '';
 
-    protected $_data = [];
+    protected array $_data = [];
 
     public function toArray(): array
     {
@@ -91,7 +91,7 @@ abstract class ViewModel implements Arrayable, Responsable
         ], $this->ignore);
     }
 
-    protected function createVariableFromMethod(ReflectionMethod $method)
+    protected function createVariableFromMethod(ReflectionMethod $method): mixed
     {
         if ($method->getNumberOfParameters() === 0) {
             return $this->{$method->getName()}();

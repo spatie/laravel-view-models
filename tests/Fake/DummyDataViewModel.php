@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Spatie\ViewModels\Tests;
+namespace Spatie\ViewModels\Tests\Fake;
 
 use Spatie\ViewModels\ViewModel;
 

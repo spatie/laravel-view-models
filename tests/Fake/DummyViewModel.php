@@ -1,15 +1,15 @@
 <?php
 
-namespace Spatie\ViewModels\Tests;
+namespace Spatie\ViewModels\Tests\Fake;
 
 use Spatie\ViewModels\ViewModel;
 use stdClass;
 
 class DummyViewModel extends ViewModel
 {
-    public $property = 'abc';
+    public string $property = 'abc';
 
-    protected $ignore = ['ignoredMethod'];
+    protected array $ignore = ['ignoredMethod'];
 
     public function __construct()
     {

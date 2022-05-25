@@ -4,6 +4,8 @@ namespace Spatie\ViewModels\Tests;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
+use Spatie\ViewModels\Tests\Fake\DummyDataViewModel;
+use Spatie\ViewModels\Tests\Fake\DummyViewModel;
 
 class ViewModelTest extends TestCase
 {
