@@ -1,12 +1,11 @@
 <?php
 
-namespace Spatie\ViewModels\Providers;
+namespace Spatie\ViewModels;
 
 use AidanCasey\Laravel\RouteBinding\Binder;
 use Illuminate\Container\Container;
 use Illuminate\Support\ServiceProvider;
 use Spatie\ViewModels\Console\ViewModelMakeCommand;
-use Spatie\ViewModels\ViewModel;
 
 class ViewModelsServiceProvider extends ServiceProvider
 {
@@ -23,7 +22,7 @@ class ViewModelsServiceProvider extends ServiceProvider
                 return;
             }
 
-            $app->bind($class, fn () => Binder::make($class, $parameters));
+            $app->bind($class, fn() => Binder::make($class, $parameters));
         });
     }
 }
