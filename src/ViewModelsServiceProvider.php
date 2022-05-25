@@ -22,7 +22,7 @@ class ViewModelsServiceProvider extends ServiceProvider
                 return;
             }
 
-            $app->bind($class, fn() => Binder::make($class, $parameters));
+            $app->bind($class, fn () => Binder::make($class, $parameters));
         });
     }
 }
