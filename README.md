@@ -62,7 +62,7 @@ class PostViewModel extends ViewModel
 }
 ```
 
-Then you can use the view modal class in your controller like this:
+Then you can use the view model class in your controller like this:
 
 ```php
 class PostsController
