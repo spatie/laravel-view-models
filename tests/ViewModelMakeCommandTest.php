@@ -17,7 +17,7 @@ class ViewModelMakeCommandTest extends TestCase
 
         $this->assertEquals(0, $exitCode);
 
-        $this->assertStringContainsString('ViewModel created successfully.', Artisan::output());
+        $this->assertMatchesRegularExpression('~ViewModel( \[.+\])? created successfully~', Artisan::output());
 
         $shouldOutputFilePath = $this->app['path'].'/ViewModels/HomeViewModel.php';
 
@@ -40,7 +40,7 @@ class ViewModelMakeCommandTest extends TestCase
 
         $this->assertEquals(0, $exitCode);
 
-        $this->assertStringContainsString('ViewModel created successfully.', Artisan::output());
+        $this->assertMatchesRegularExpression('~ViewModel( \[.+\])? created successfully~', Artisan::output());
 
         $shouldOutputFilePath = $this->app['path'].'/ViewModels/Blog/PostsViewModel.php';
 
