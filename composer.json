@@ -20,7 +20,8 @@
         "illuminate/support": "^8.0|^9.0"
     },
     "require-dev": {
-        "orchestra/testbench": "^6.23|^7.0"
+        "orchestra/testbench": "^6.23|^7.0",
+        "phpunit/phpunit": "^9.4"
     },
     "autoload": {
         "psr-4": {

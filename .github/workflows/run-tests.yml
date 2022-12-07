@@ -9,7 +9,7 @@ jobs:
             fail-fast: false
             matrix:
                 os: [ubuntu-latest, windows-latest]
-                php: [7.4, 8.0, 8.1]
+                php: [8.2, 8.1, 8.0, 7.4]
                 laravel: [9.*, 8.*]
                 dependency-version: [prefer-lowest, prefer-stable]
                 include:
@@ -37,7 +37,7 @@ jobs:
             -   name: Install dependencies
                 run: |
                     composer remove --dev friendsofphp/php-cs-fixer --no-interaction --no-update
-                    composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update
+                    composer require "laravel/framework:${{ matrix.laravel }}" "nesbot/carbon:^2.63" "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update
                     composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction
 
             -   name: Execute tests
