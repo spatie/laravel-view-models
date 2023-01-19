@@ -1,134 +1,97 @@
 <?php
 
-namespace Spatie\ViewModels\Tests;
-
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
+use Spatie\ViewModels\Tests\DummyDataViewModel;
+use Spatie\ViewModels\Tests\DummyViewModel;
 
-class ViewModelTest extends TestCase
-{
-    /** @var \Spatie\ViewModels\ViewModel */
-    protected $viewModel;
+beforeEach(function () {
+    $this->viewModel = new DummyViewModel();
+});
 
-    protected function setUp(): void
-    {
-        parent::setUp();
+test('public methods are listed', function () {
+    $array = $this->viewModel->toArray();
 
-        $this->viewModel = new DummyViewModel();
-    }
+    expect($array)->toHaveKeys(['post', 'categories']);
+});
 
-    /** @test */
-    public function public_methods_are_listed()
-    {
-        $array = $this->viewModel->toArray();
+test('public properties are listed', function () {
+    $array = $this->viewModel->toArray();
 
-        $this->assertArrayHasKey('post', $array);
-        $this->assertArrayHasKey('categories', $array);
-    }
+    expect($array)->toHaveKey('property');
+});
 
-    /** @test */
-    public function public_properties_are_listed()
-    {
-        $array = $this->viewModel->toArray();
+test('values are kept as they are', function () {
+    $array = $this->viewModel->toArray();
 
-        $this->assertArrayHasKey('property', $array);
-    }
+    expect($array['post']->title)->toEqual('title');
+});
 
-    /** @test */
-    public function values_are_kept_as_they_are()
-    {
-        $array = $this->viewModel->toArray();
+test('callables can be stored', function () {
+    $array = $this->viewModel->toArray();
 
-        $this->assertEquals('title', $array['post']->title);
-    }
+    expect($array['callableMethod']('foo'))->toEqual('foo');
+});
 
-    /** @test */
-    public function callables_can_be_stored()
-    {
-        $array = $this->viewModel->toArray();
+test('ignored methods are not listed', function () {
+    $array = $this->viewModel->toArray();
 
-        $this->assertEquals('foo', $array['callableMethod']('foo'));
-    }
+    expect($array)->not->toHaveKey('ignoredMethod');
+});
 
-    /** @test */
-    public function ignored_methods_are_not_listed()
-    {
-        $array = $this->viewModel->toArray();
+test('to array is not listed', function () {
 
-        $this->assertArrayNotHasKey('ignoredMethod', $array);
-    }
+    $array = $this->viewModel->toArray();
 
-    /** @test */
-    public function to_array_is_not_listed()
-    {
-        $array = $this->viewModel->toArray();
+    expect($array)->not->toHaveKey('toArray');
+});
 
-        $this->assertArrayNotHasKey('toArray', $array);
-    }
+test('to response is not listed', function () {
+    $array = $this->viewModel->toArray();
 
-    /** @test */
-    public function to_response_is_not_listed()
-    {
-        $array = $this->viewModel->toArray();
+    expect($array)->not->toHaveKey('toResponse');
+});
 
-        $this->assertArrayNotHasKey('toResponse', $array);
-    }
+test('magic methods are not listed', function () {
+    $array = $this->viewModel->toArray();
 
-    /** @test */
-    public function magic_methods_are_not_listed()
-    {
-        $array = $this->viewModel->toArray();
+    expect($array)->not->toHaveKey('__construct');
+});
 
-        $this->assertArrayNotHasKey('__construct', $array);
-    }
+test('to response returns json by default', function () {
+    $response = $this->viewModel->toResponse(createRequest());
 
-    /** @test */
-    public function to_response_returns_json_by_default()
-    {
-        $response = $this->viewModel->toResponse($this->createRequest());
+    expect($response)->toBeInstanceOf(JsonResponse::class);
 
-        $this->assertInstanceOf(JsonResponse::class, $response);
+    $array = getResponseBody($response);
 
-        $array = $this->getResponseBody($response);
+    expect($array)->toHaveKeys(['post', 'categories']);
+});
 
-        $this->assertArrayHasKey('post', $array);
-        $this->assertArrayHasKey('categories', $array);
-    }
+it('will return a regular view when a view is set and a JSON response is not requested', function () {
+    $response = $this->viewModel->view('test')->toResponse(createRequest());
 
-    /** @test */
-    public function it_will_return_a_regular_view_when_a_view_is_set_and_a_json_response_is_not_requested()
-    {
-        $response = $this->viewModel->view('test')->toResponse($this->createRequest());
+    expect($response)->toBeInstanceOf(Response::class);
+});
 
-        $this->assertInstanceOf(Response::class, $response);
-    }
+it('will return a JSON response if a JSON response is requested even if a view is set', function () {
+    $response = $this->viewModel->view('test')->toResponse(createRequest([
+        'Accept' => 'application/json',
+    ]));
 
-    /** @test */
-    public function it_will_return_a_json_response_if_a_json_response_is_requested_even_if_a_view_is_set()
-    {
-        $response = $this->viewModel->view('test')->toResponse($this->createRequest([
-            'Accept' => 'application/json',
-        ]));
+    expect($response)->toBeInstanceOf(JsonResponse::class);
+});
 
-        $this->assertInstanceOf(JsonResponse::class, $response);
-    }
+it('will allow params to be passed to view method', function () {
+    $array = $this->viewModel->view('test', ['name' => 'james'])->toArray();
 
-    /** @test */
-    public function it_will_allow_params_to_be_passed_to_view_method()
-    {
-        $array = $this->viewModel->view('test', ['name' => 'james'])->toArray();
+    expect($array)->toHaveKey('name');
+});
 
-        $this->assertArrayHasKey('name', $array);
-    }
+it('will not duplicate the data attribute', function () {
+    $array = (new DummyDataViewModel(['orange', 'apples']))
+        ->view('test', ['name' => 'james'])->toArray();
 
-    /** @test */
-    public function it_will_not_duplicate_the_data_attribute()
-    {
-        $array = (new DummyDataViewModel(['orange', 'apples']))
-            ->view('test', ['name' => 'james'])->toArray();
-
-        $this->assertArrayHasKey('name', $array);
-        $this->assertArrayHasKey('data', $array);
-        $this->assertSame(['orange', 'apples'], $array['data']);
-    }
-}
+    expect($array)->toHaveKeys(['name', 'data'])
+        ->and($array['data'])->toEqual(['orange', 'apples']);
+});

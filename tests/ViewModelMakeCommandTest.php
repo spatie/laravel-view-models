@@ -1,55 +1,42 @@
 <?php
 
-namespace Spatie\ViewModels\Tests;
-
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\File;
 
-class ViewModelMakeCommandTest extends TestCase
-{
-    /** @test */
-    public function it_can_create_a_view_model()
-    {
-        $exitCode = Artisan::call('make:view-model', [
-            'name' => 'HomeViewModel',
-            '--force' => true,
-        ]);
+use function PHPUnit\Framework\assertTrue;
 
-        $this->assertEquals(0, $exitCode);
+it('can create a view model', function () {
+    $exitCode = Artisan::call('make:view-model', [
+        'name' => 'HomeViewModel',
+        '--force' => true,
+    ]);
 
-        $this->assertMatchesRegularExpression('~ViewModel( \[.+\])? created successfully~', Artisan::output());
+    expect($exitCode)->toEqual(0)
+        ->and(Artisan::output())->toMatch('~ViewModel( \[.+\])? created successfully~');
 
-        $shouldOutputFilePath = $this->app['path'].'/ViewModels/HomeViewModel.php';
+    $shouldOutputFilePath = $this->app['path'] . '/ViewModels/HomeViewModel.php';
 
-        $this->assertTrue(File::exists($shouldOutputFilePath), 'File exists in default app/ViewModels folder');
+    assertTrue(File::exists($shouldOutputFilePath), 'File exists in default app/ViewModels folder');
 
-        $contents = File::get($shouldOutputFilePath);
+    expect(File::get($shouldOutputFilePath))
+        ->toContain('namespace App\ViewModels;')
+        ->toContain('class HomeViewModel extends ViewModel');
+});
 
-        $this->assertStringContainsString('namespace App\ViewModels;', $contents);
+it('can create a view model with a custom namespace', function () {
+    $exitCode = Artisan::call('make:view-model', [
+        'name' => 'Blog/PostsViewModel',
+        '--force' => true,
+    ]);
 
-        $this->assertStringContainsString('class HomeViewModel extends ViewModel', $contents);
-    }
+    expect($exitCode)->toEqual(0)
+        ->and(Artisan::output())->toMatch('~ViewModel( \[.+\])? created successfully~');
 
-    /** @test */
-    public function it_can_create_a_view_model_with_a_custom_namespace()
-    {
-        $exitCode = Artisan::call('make:view-model', [
-            'name' => 'Blog/PostsViewModel',
-            '--force' => true,
-        ]);
+    $shouldOutputFilePath = $this->app['path'] . '/ViewModels/Blog/PostsViewModel.php';
 
-        $this->assertEquals(0, $exitCode);
+    assertTrue(File::exists($shouldOutputFilePath), 'File exists in custom app/Blog folder');
 
-        $this->assertMatchesRegularExpression('~ViewModel( \[.+\])? created successfully~', Artisan::output());
-
-        $shouldOutputFilePath = $this->app['path'].'/ViewModels/Blog/PostsViewModel.php';
-
-        $this->assertTrue(File::exists($shouldOutputFilePath), 'File exists in custom app/Blog folder');
-
-        $contents = File::get($shouldOutputFilePath);
-
-        $this->assertStringContainsString('namespace App\ViewModels\Blog;', $contents);
-
-        $this->assertStringContainsString('class PostsViewModel extends ViewModel', $contents);
-    }
-}
+    expect(File::get($shouldOutputFilePath))
+        ->toContain('namespace App\ViewModels\Blog;')
+        ->toContain('class PostsViewModel extends ViewModel');
+});
