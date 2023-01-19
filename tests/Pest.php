@@ -1,7 +1,7 @@
 <?php
 
-use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 uses(Spatie\ViewModels\Tests\TestCase::class)->in('.');
 

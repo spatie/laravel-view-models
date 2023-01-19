@@ -40,7 +40,6 @@ test('ignored methods are not listed', function () {
 });
 
 test('to array is not listed', function () {
-
     $array = $this->viewModel->toArray();
 
     expect($array)->not->toHaveKey('toArray');
