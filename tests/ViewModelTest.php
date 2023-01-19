@@ -59,23 +59,23 @@ test('magic methods are not listed', function () {
 });
 
 test('to response returns json by default', function () {
-    $response = $this->viewModel->toResponse($this->createRequest());
+    $response = $this->viewModel->toResponse(createRequest());
 
     expect($response)->toBeInstanceOf(JsonResponse::class);
 
-    $array = $this->getResponseBody($response);
+    $array = getResponseBody($response);
 
     expect($array)->toHaveKeys(['post', 'categories']);
 });
 
 it('will return a regular view when a view is set and a JSON response is not requested', function () {
-    $response = $this->viewModel->view('test')->toResponse($this->createRequest());
+    $response = $this->viewModel->view('test')->toResponse(createRequest());
 
     expect($response)->toBeInstanceOf(Response::class);
 });
 
 it('will return a JSON response if a JSON response is requested even if a view is set', function () {
-    $response = $this->viewModel->view('test')->toResponse($this->createRequest([
+    $response = $this->viewModel->view('test')->toResponse(createRequest([
         'Accept' => 'application/json',
     ]));
 
