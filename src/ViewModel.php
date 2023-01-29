@@ -20,6 +20,7 @@ abstract class ViewModel implements Arrayable, Responsable
     protected $view = '';
 
     protected $_data = [];
+    protected $snakeCaseMapper = false;
 
     public function toArray(): array
     {
@@ -58,7 +59,7 @@ abstract class ViewModel implements Arrayable, Responsable
                 return $this->shouldIgnore($property->getName());
             })
             ->mapWithKeys(function (ReflectionProperty $property) {
-                return [$property->getName() => $this->{$property->getName()}];
+                return [$this->resolveName($property->getName()) => $this->{$property->getName()}];
             });
 
         $publicMethods = collect($class->getMethods(ReflectionMethod::IS_PUBLIC))
@@ -66,7 +67,7 @@ abstract class ViewModel implements Arrayable, Responsable
                 return $this->shouldIgnore($method->getName());
             })
             ->mapWithKeys(function (ReflectionMethod $method) {
-                return [$method->getName() => $this->createVariableFromMethod($method)];
+                return [$this->resolveName($method->getName()) => $this->createVariableFromMethod($method)];
             });
 
 
@@ -98,5 +99,14 @@ abstract class ViewModel implements Arrayable, Responsable
         }
 
         return Closure::fromCallable([$this, $method->getName()]);
+    }
+
+    protected function resolveName(string $name): string
+    {
+        if (! $this->snakeCaseMapper) {
+            return $name;
+        }
+
+        return Str::snake($name);
     }
 }
