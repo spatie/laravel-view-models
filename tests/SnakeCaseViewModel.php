@@ -7,7 +7,7 @@ use stdClass;
 
 class SnakeCaseViewModel extends ViewModel
 {
-    protected $snakeCaseMapper = true;
+    protected $snakeCase = true;
 
     public $dummyProperty = 'abc';
 

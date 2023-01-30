@@ -20,7 +20,7 @@ abstract class ViewModel implements Arrayable, Responsable
     protected $view = '';
 
     protected $_data = [];
-    protected $snakeCaseMapper = false;
+    protected $snakeCase = false;
 
     public function toArray(): array
     {
@@ -103,7 +103,7 @@ abstract class ViewModel implements Arrayable, Responsable
 
     protected function resolveName(string $name): string
     {
-        if (! $this->snakeCaseMapper) {
+        if (! $this->snakeCase) {
             return $name;
         }
 
