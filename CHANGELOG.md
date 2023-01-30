@@ -2,6 +2,22 @@
 
 All notable changes to `laravel-view-models` will be documented in this file
 
+## 1.5.3 - 2023-01-30
+
+### What's Changed
+
+- Update README.md in https://github.com/spatie/laravel-view-models/pull/45
+- Add PHP 8.2 Support by @patinthehat in https://github.com/spatie/laravel-view-models/pull/46
+- Convert all tests to Pest by @alexmanase in https://github.com/spatie/laravel-view-models/pull/47
+- Implement Snake Case Mapping for ViewModel Properties and Methods by @gjinali in https://github.com/spatie/laravel-view-models/pull/48
+
+### New Contributors
+
+- @alexmanase made their first contribution in https://github.com/spatie/laravel-view-models/pull/47
+- @gjinali made their first contribution in https://github.com/spatie/laravel-view-models/pull/48
+
+**Full Changelog**: https://github.com/spatie/laravel-view-models/compare/1.5.2...1.5.3
+
 ## 1.5.2 - 2022-02-23
 
 ## What's Changed
