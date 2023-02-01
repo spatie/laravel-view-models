@@ -1,7 +1,7 @@
 # View models in Laravel
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/laravel-view-models.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-view-models)
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/spatie/laravel-view-models/run-tests?label=tests)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/spatie/laravel-view-models/run-tests.yml?branch=main&label=Tests&style=flat-square)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-view-models.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-view-models)
 
 Have you ever made a controller where you had to do a lot of work to prepare variables to be passed to a view? You can move that kind of work to a so called view model.  In essence, view models are simple classes that take some data, and transform it into something usable for the view.
