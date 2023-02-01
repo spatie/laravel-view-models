@@ -2,6 +2,18 @@
 
 All notable changes to `laravel-view-models` will be documented in this file
 
+## 1.5.4 - 2023-02-01
+
+### What's Changed
+
+- Laravel 10.x Compatibility by @laravel-shift in https://github.com/spatie/laravel-view-models/pull/50
+
+### New Contributors
+
+- @laravel-shift made their first contribution in https://github.com/spatie/laravel-view-models/pull/50
+
+**Full Changelog**: https://github.com/spatie/laravel-view-models/compare/1.5.3...1.5.4
+
 ## 1.5.3 - 2023-01-30
 
 ### What's Changed
