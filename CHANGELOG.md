@@ -2,6 +2,19 @@
 
 All notable changes to `laravel-view-models` will be documented in this file
 
+## 1.6.0 - 2024-03-13
+
+### What's Changed
+
+* Update broken shield badge by @erikn69 in https://github.com/spatie/laravel-view-models/pull/51
+* Laravel 11.x Compatibility by @laravel-shift in https://github.com/spatie/laravel-view-models/pull/52
+
+### New Contributors
+
+* @erikn69 made their first contribution in https://github.com/spatie/laravel-view-models/pull/51
+
+**Full Changelog**: https://github.com/spatie/laravel-view-models/compare/1.5.4...1.6.0
+
 ## 1.5.4 - 2023-02-01
 
 ### What's Changed
