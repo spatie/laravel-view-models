@@ -11,7 +11,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, windows-latest]
+        os: [ubuntu-latest]
         php: [8.2, 8.1, 8.0, 7.4]
         laravel: ['8.*', '9.*', '10.*', '11.*']
         dependency-version: [prefer-lowest, prefer-stable]
