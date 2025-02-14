@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-view-models` will be documented in this file
 
+## 1.6.1 - 2025-02-14
+
+### What's Changed
+
+* Laravel 12.x Compatibility by @laravel-shift in https://github.com/spatie/laravel-view-models/pull/53
+
+**Full Changelog**: https://github.com/spatie/laravel-view-models/compare/1.6.0...1.6.1
+
 ## 1.6.0 - 2024-03-13
 
 ### What's Changed
