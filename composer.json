@@ -17,11 +17,11 @@
     ],
     "require": {
         "php": "^7.3|^8.0",
-        "illuminate/support": "^8.0|^9.0|^10.0|^11.0"
+        "illuminate/support": "^8.0|^9.0|^10.0|^11.0|^12.0"
     },
     "require-dev": {
-        "orchestra/testbench": "^6.23|^7.0|^8.0|^9.0",
-        "pestphp/pest": "^1.22|^2.34"
+        "orchestra/testbench": "^6.23|^7.0|^8.0|^9.0|^10.0",
+        "pestphp/pest": "^1.22|^2.34|^3.0"
     },
     "autoload": {
         "psr-4": {
