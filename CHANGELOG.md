@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-view-models` will be documented in this file
 
+## 1.6.2 - 2026-02-21
+
+Add Laravel 13 support
+
 ## 1.6.1 - 2025-02-14
 
 ### What's Changed
